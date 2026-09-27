@@ -1,0 +1,214 @@
+/* Home.css - styles for the dashboard */
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.home-title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.avatar-link {
+  flex-shrink: 0;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.home-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.home-side {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ---------- Steps ring card ---------- */
+.steps-card {
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.steps-card .ring {
+  width: 200px;
+}
+
+.ring-icon {
+  color: var(--accent);
+}
+
+.ring-value {
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.ring-label {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.steps-summary {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.steps-summary strong {
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+/* ---------- Calories / active minutes cards ---------- */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stat-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.stat-value {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.stat-number {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.stat-unit,
+.stat-goal {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.stat-goal {
+  font-size: 12px;
+}
+
+.stat-track {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.stat-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent);
+  transition: width 0.4s ease;
+}
+
+/* ---------- Update activity form ---------- */
+.activity-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.activity-form-fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.activity-form-fields .input {
+  padding: 0 12px;
+}
+
+/* ---------- Up next card ---------- */
+.up-next {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.up-next-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.up-next-title {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.up-next-meta {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ---------- Bigger screens: ring on the left, cards on the right ---------- */
+@media (min-width: 768px) {
+  .home-title {
+    font-size: 28px;
+  }
+
+  .home-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .steps-card {
+    padding: 32px 20px;
+  }
+
+  .steps-card .ring {
+    width: 240px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  }
+
+  .steps-card .ring {
+    width: 280px;
+  }
+
+  .ring-value {
+    font-size: 48px;
+  }
+}

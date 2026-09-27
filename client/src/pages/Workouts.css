@@ -1,0 +1,284 @@
+/* Workouts.css - styles for the workout list and exercise checklist */
+
+.workouts-layout {
+  display: grid;
+  gap: 16px;
+  align-items: start;
+}
+
+.workout-list-panel,
+.workout-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ---------- Category filter chips ---------- */
+.chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto; /* scroll sideways if the chips don't fit */
+  scrollbar-width: none;
+}
+
+.chip {
+  min-height: 36px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text-soft);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.chip:hover {
+  border-color: var(--accent);
+}
+
+.chip[aria-pressed='true'] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
+}
+
+/* ---------- Workout cards ---------- */
+.workout-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.workout-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+}
+
+.workout-card.is-selected {
+  border-color: var(--accent);
+}
+
+.workout-card-info {
+  flex-grow: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.workout-card-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.workout-name {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.tag {
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--surface-3);
+  color: var(--text-soft);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.workout-meta {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.workout-status {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.workout-status.is-active {
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+/* ---------- Open workout ---------- */
+.back-button {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 44px;
+  padding: 0 8px 0 0;
+  border: 0;
+  background: none;
+  color: var(--text-soft);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.active-workout {
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.active-workout-info {
+  flex: 1 1 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.active-workout-name {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.active-workout-meta {
+  font-size: 13px;
+  color: var(--accent-soft-text);
+}
+
+/* ---------- Exercise rows ---------- */
+.exercise-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.exercise {
+  width: 100%;
+  min-height: 60px;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.exercise:hover:not(:disabled) {
+  border-color: var(--border-strong);
+}
+
+.exercise:disabled {
+  cursor: default;
+}
+
+.exercise.is-current {
+  border: 1.5px solid var(--accent);
+}
+
+.exercise-badge {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--surface-3);
+  color: var(--text-soft);
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.is-current .exercise-badge {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+
+.is-done .exercise-badge {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.exercise-info {
+  flex-grow: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.exercise-name {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.is-done .exercise-name {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.exercise-detail {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.exercise-time {
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.is-current .exercise-time {
+  color: var(--accent-text);
+}
+
+.is-done .exercise-time {
+  color: var(--text-muted);
+}
+
+/* ---------- Phones & small tablets: show the list OR the open workout ---------- */
+@media (max-width: 899px) {
+  .workouts-layout.has-selection .workout-list-panel {
+    display: none;
+  }
+
+  .workouts-layout:not(.has-selection) .workout-detail-panel {
+    display: none;
+  }
+}
+
+/* ---------- Wide screens: list and open workout side by side ---------- */
+@media (min-width: 900px) {
+  .workouts-layout {
+    grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .back-button {
+    display: none;
+  }
+
+  .workout-detail-panel {
+    position: sticky;
+    top: 24px;
+  }
+}

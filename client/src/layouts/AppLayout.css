@@ -1,0 +1,124 @@
+/* AppLayout.css - page frame and navigation.
+   Mobile first: the default styles are for phones,
+   and @media blocks change the layout on bigger screens. */
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.app-main {
+  max-width: 520px;
+  margin: 0 auto;
+  /* extra bottom padding so content never hides behind the bottom nav */
+  padding: 32px 20px calc(104px + env(safe-area-inset-bottom));
+}
+
+/* ---------- Navigation (bottom bar on phones) ---------- */
+.nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background: var(--surface-2);
+  border-top: 1px solid var(--border);
+  padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+}
+
+.nav-brand {
+  display: none; /* only shown in the desktop sidebar */
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 520px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-link {
+  min-width: 64px;
+  min-height: 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--nav-idle);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: var(--text);
+}
+
+/* NavLink adds the "active" class to the link of the page that is open */
+.nav-link.active {
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+/* ---------- Tablet ---------- */
+@media (min-width: 768px) {
+  .app-main {
+    max-width: 760px;
+    padding: 48px 32px calc(120px + env(safe-area-inset-bottom));
+  }
+}
+
+/* ---------- Desktop: the bottom bar becomes a left sidebar ---------- */
+@media (min-width: 1024px) {
+  .app-shell {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+  }
+
+  .nav {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    border-top: 0;
+    border-right: 1px solid var(--border);
+    padding: 32px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .nav-brand {
+    display: inline-flex;
+    padding: 0 12px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 4px;
+    max-width: none;
+    margin: 0;
+  }
+
+  .nav-link {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 12px;
+    min-height: 48px;
+    padding: 0 14px;
+    font-size: 15px;
+  }
+
+  .nav-link.active {
+    background: var(--accent-soft);
+  }
+
+  .app-main {
+    width: 100%;
+    max-width: 1080px;
+    padding: 48px 48px 64px;
+  }
+}

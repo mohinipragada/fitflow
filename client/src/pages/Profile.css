@@ -1,0 +1,198 @@
+/* Profile.css - styles for the profile and settings page */
+
+.profile-grid,
+.profile-side,
+.profile-main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.profile-name {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.profile-email {
+  margin-top: 2px;
+  font-size: 13px;
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Height / Weight / Age ---------- */
+.body-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 14px 0;
+  border-radius: 18px;
+}
+
+.body-stats > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.body-stats > div + div {
+  border-left: 1px solid var(--border);
+}
+
+.body-stat-value {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.body-stat-value small {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.body-stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ---------- Edit profile form ---------- */
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.profile-form-numbers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.profile-form-numbers .input {
+  padding: 0 12px;
+}
+
+/* ---------- Settings list ---------- */
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.settings .section-label {
+  margin: 0 4px;
+}
+
+.settings-list {
+  padding: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.setting-row {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.2;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.setting-row:last-child {
+  border-bottom: 0;
+}
+
+.setting-row:hover {
+  background: var(--surface-3);
+}
+
+.setting-row-label {
+  flex-grow: 1;
+}
+
+.setting-row-value {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.setting-row-chevron {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+/* Step goal editor (replaces the row while editing) */
+.setting-edit {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.setting-edit label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-soft);
+}
+
+.setting-edit-row {
+  display: flex;
+  gap: 8px;
+}
+
+.setting-edit-row .input {
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+}
+
+.setting-edit-row .btn {
+  padding: 0 14px;
+}
+
+/* ---------- Desktop: profile card on the left, settings on the right ---------- */
+@media (min-width: 1024px) {
+  .profile-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+    align-items: start;
+    gap: 24px;
+  }
+
+  .profile-side {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px 20px 20px;
+  }
+
+  .profile-side .body-stats {
+    background: var(--bg);
+  }
+
+  .profile-main .btn-danger {
+    align-self: flex-start;
+    width: auto;
+    padding: 0 28px;
+  }
+}

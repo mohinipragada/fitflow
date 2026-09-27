@@ -1,0 +1,183 @@
+/* AuthLayout.css - styles for the Login and Register pages */
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+}
+
+.auth-brand {
+  display: none; /* hidden on phones and tablets */
+}
+
+.auth-main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 56px 24px 40px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.auth-header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.auth-header p {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  font-size: 14px;
+  color: var(--text-soft);
+  cursor: pointer;
+}
+
+.checkbox-row input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--accent);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.social-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.social-buttons .btn {
+  min-height: 52px;
+  border-radius: var(--radius-sm);
+}
+
+.auth-switch {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.auth-switch a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ---------- Welcome panel (desktop only) ---------- */
+.auth-brand-body h2 {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  max-width: 12ch;
+}
+
+.auth-brand-body p {
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  max-width: 36ch;
+}
+
+.auth-features {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--text-soft);
+}
+
+.auth-features svg {
+  color: var(--accent-text);
+  flex-shrink: 0;
+}
+
+.auth-preview .ring {
+  width: 180px;
+}
+
+.auth-preview-value {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.auth-preview-label {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+@media (min-width: 1024px) {
+  .auth-brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+    width: 44%;
+    max-width: 560px;
+    padding: 48px;
+    background: var(--surface-2);
+    border-right: 1px solid var(--border);
+  }
+
+  .auth-main {
+    align-items: center;
+    padding: 48px;
+  }
+
+  /* The panel already shows the logo, so hide the form's own logo */
+  .auth-logo {
+    display: none;
+  }
+}

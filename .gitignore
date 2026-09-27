@@ -1,0 +1,13 @@
+# Installed packages (re-created with "npm install")
+node_modules/
+
+# Secret settings - never upload these
+.env
+
+# Build output
+client/dist/
+
+# Logs and editor files
+*.log
+.DS_Store
+.vscode/

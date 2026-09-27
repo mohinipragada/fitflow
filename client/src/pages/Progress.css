@@ -1,0 +1,233 @@
+/* Progress.css - styles for the weekly chart and summary cards */
+
+/* ---------- Steps / Calories / Minutes switch ---------- */
+.segmented {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.segmented button {
+  min-height: 36px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.segmented button:hover {
+  color: var(--text);
+}
+
+.segmented button[aria-pressed='true'] {
+  background: var(--border);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.progress-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ---------- Chart card ---------- */
+.chart-card {
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chart-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.chart-total-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.chart-total {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.chart-caption {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.change-badge {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-hover);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.change-badge.is-down {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+/* The bars: each column is full height, the bar inside grows from the bottom */
+.chart {
+  position: relative;
+  height: 180px;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.chart-column {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.chart-bar {
+  width: 100%;
+  min-height: 3px;
+  border-radius: 8px 8px 3px 3px;
+  background: var(--bar);
+  transition: height 0.3s ease;
+}
+
+.is-today .chart-bar {
+  background: var(--accent);
+}
+
+/* Little label above today's bar */
+.chart-bubble {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  padding: 3px 6px;
+  border-radius: 6px;
+  background: var(--text);
+  color: var(--bg);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Dashed goal line */
+.chart-goal {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  border-top: 1.5px dashed var(--goal-line);
+  pointer-events: none;
+}
+
+.chart-goal span {
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.chart-labels {
+  display: flex;
+  gap: 12px;
+  margin-top: -8px;
+}
+
+.chart-labels span {
+  flex: 1 1 0;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.chart-labels .is-today {
+  color: var(--accent-text);
+  font-weight: 700;
+}
+
+.chart-empty {
+  min-height: 180px;
+  justify-content: center;
+}
+
+/* ---------- Summary cards ---------- */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.summary-card {
+  padding: 14px 16px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.summary-label {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.summary-value {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.summary-value small {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+@media (min-width: 768px) {
+  .chart {
+    height: 240px;
+  }
+
+  .segmented {
+    max-width: 420px;
+  }
+}
+
+/* Desktop: chart on the left, summary cards stacked on the right */
+@media (min-width: 1024px) {
+  .progress-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .summary-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .chart {
+    height: 280px;
+  }
+}
